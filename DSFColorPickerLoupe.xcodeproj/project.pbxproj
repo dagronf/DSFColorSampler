@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23B19A3922483AB9004FD299 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 23B19A3722483AB9004FD299 /* LICENSE */; };
+		23B19A3A22483AB9004FD299 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 23B19A3822483AB9004FD299 /* README.md */; };
+		23B19A3D22486756004FD299 /* DSFColorPickerLoupe.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23BE2D702245AD850074E85D /* DSFColorPickerLoupe.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23BE2D7A2245AD850074E85D /* DSFColorPickerLoupe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BE2D702245AD850074E85D /* DSFColorPickerLoupe.framework */; };
 		23BE2D7F2245AD850074E85D /* DSFColorPickerLoupeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D7E2245AD850074E85D /* DSFColorPickerLoupeTests.swift */; };
 		23BE2D812245AD850074E85D /* DSFColorPickerLoupe.h in Headers */ = {isa = PBXBuildFile; fileRef = 23BE2D732245AD850074E85D /* DSFColorPickerLoupe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23BE2D952245B7BB0074E85D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D942245B7BB0074E85D /* AppDelegate.swift */; };
+		23BE2D972245B7BB0074E85D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23BE2D962245B7BB0074E85D /* Assets.xcassets */; };
+		23BE2D9A2245B7BC0074E85D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23BE2D982245B7BC0074E85D /* MainMenu.xib */; };
+		23BE2DA12245B7C50074E85D /* DSFColorPickerLoupe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BE2D702245AD850074E85D /* DSFColorPickerLoupe.framework */; };
+		23BE2DA32245BDCC0074E85D /* DSFColorPickerLoupe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2DA22245BDCC0074E85D /* DSFColorPickerLoupe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,13 +30,35 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		23B19A3C22486748004FD299 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				23B19A3D22486756004FD299 /* DSFColorPickerLoupe.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		23B19A3722483AB9004FD299 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		23B19A3822483AB9004FD299 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		23BE2D702245AD850074E85D /* DSFColorPickerLoupe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DSFColorPickerLoupe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BE2D732245AD850074E85D /* DSFColorPickerLoupe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSFColorPickerLoupe.h; sourceTree = "<group>"; };
 		23BE2D742245AD850074E85D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23BE2D792245AD850074E85D /* DSFColorPickerLoupeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSFColorPickerLoupeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BE2D7E2245AD850074E85D /* DSFColorPickerLoupeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFColorPickerLoupeTests.swift; sourceTree = "<group>"; };
 		23BE2D802245AD850074E85D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23BE2D922245B7BB0074E85D /* ColorPickerTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPickerTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23BE2D942245B7BB0074E85D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		23BE2D962245B7BB0074E85D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		23BE2D992245B7BC0074E85D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		23BE2D9B2245B7BC0074E85D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23BE2D9C2245B7BC0074E85D /* ColorPickerTestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorPickerTestApp.entitlements; sourceTree = "<group>"; };
+		23BE2DA22245BDCC0074E85D /* DSFColorPickerLoupe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFColorPickerLoupe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,15 +77,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		23BE2D8F2245B7BB0074E85D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23BE2DA12245B7C50074E85D /* DSFColorPickerLoupe.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		23BE2D662245AD850074E85D = {
 			isa = PBXGroup;
 			children = (
+				23B19A3722483AB9004FD299 /* LICENSE */,
+				23B19A3822483AB9004FD299 /* README.md */,
 				23BE2D722245AD850074E85D /* DSFColorPickerLoupe */,
 				23BE2D7D2245AD850074E85D /* DSFColorPickerLoupeTests */,
+				23BE2D932245B7BB0074E85D /* ColorPickerTestApp */,
 				23BE2D712245AD850074E85D /* Products */,
+				23BE2DA02245B7C50074E85D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +106,7 @@
 			children = (
 				23BE2D702245AD850074E85D /* DSFColorPickerLoupe.framework */,
 				23BE2D792245AD850074E85D /* DSFColorPickerLoupeTests.xctest */,
+				23BE2D922245B7BB0074E85D /* ColorPickerTestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +116,7 @@
 			children = (
 				23BE2D732245AD850074E85D /* DSFColorPickerLoupe.h */,
 				23BE2D742245AD850074E85D /* Info.plist */,
+				23BE2DA22245BDCC0074E85D /* DSFColorPickerLoupe.swift */,
 			);
 			path = DSFColorPickerLoupe;
 			sourceTree = "<group>";
@@ -84,6 +128,25 @@
 				23BE2D802245AD850074E85D /* Info.plist */,
 			);
 			path = DSFColorPickerLoupeTests;
+			sourceTree = "<group>";
+		};
+		23BE2D932245B7BB0074E85D /* ColorPickerTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				23BE2D942245B7BB0074E85D /* AppDelegate.swift */,
+				23BE2D962245B7BB0074E85D /* Assets.xcassets */,
+				23BE2D982245B7BC0074E85D /* MainMenu.xib */,
+				23BE2D9B2245B7BC0074E85D /* Info.plist */,
+				23BE2D9C2245B7BC0074E85D /* ColorPickerTestApp.entitlements */,
+			);
+			path = ColorPickerTestApp;
+			sourceTree = "<group>";
+		};
+		23BE2DA02245B7C50074E85D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +199,24 @@
 			productReference = 23BE2D792245AD850074E85D /* DSFColorPickerLoupeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		23BE2D912245B7BB0074E85D /* ColorPickerTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23BE2D9D2245B7BC0074E85D /* Build configuration list for PBXNativeTarget "ColorPickerTestApp" */;
+			buildPhases = (
+				23BE2D8E2245B7BB0074E85D /* Sources */,
+				23BE2D8F2245B7BB0074E85D /* Frameworks */,
+				23BE2D902245B7BB0074E85D /* Resources */,
+				23B19A3C22486748004FD299 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColorPickerTestApp;
+			productName = ColorPickerTestApp;
+			productReference = 23BE2D922245B7BB0074E85D /* ColorPickerTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -148,8 +229,12 @@
 				TargetAttributes = {
 					23BE2D6F2245AD850074E85D = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					23BE2D782245AD850074E85D = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					23BE2D912245B7BB0074E85D = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -160,6 +245,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 23BE2D662245AD850074E85D;
 			productRefGroup = 23BE2D712245AD850074E85D /* Products */;
@@ -168,6 +254,7 @@
 			targets = (
 				23BE2D6F2245AD850074E85D /* DSFColorPickerLoupe */,
 				23BE2D782245AD850074E85D /* DSFColorPickerLoupeTests */,
+				23BE2D912245B7BB0074E85D /* ColorPickerTestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -177,6 +264,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23B19A3A22483AB9004FD299 /* README.md in Resources */,
+				23B19A3922483AB9004FD299 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +276,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		23BE2D902245B7BB0074E85D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23BE2D972245B7BB0074E85D /* Assets.xcassets in Resources */,
+				23BE2D9A2245B7BC0074E85D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -194,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23BE2DA32245BDCC0074E85D /* DSFColorPickerLoupe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +301,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				23BE2D7F2245AD850074E85D /* DSFColorPickerLoupeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23BE2D8E2245B7BB0074E85D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23BE2D952245B7BB0074E85D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +321,17 @@
 			targetProxy = 23BE2D7B2245AD850074E85D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		23BE2D982245B7BC0074E85D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23BE2D992245B7BC0074E85D /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		23BE2D822245AD850074E85D /* Debug */ = {
@@ -340,6 +458,7 @@
 		23BE2D852245AD850074E85D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -359,6 +478,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFColorPickerLoupe;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -366,6 +486,7 @@
 		23BE2D862245AD850074E85D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -392,6 +513,7 @@
 		23BE2D882245AD850074E85D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3L6RK3LGGW;
@@ -410,6 +532,7 @@
 		23BE2D892245AD850074E85D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3L6RK3LGGW;
@@ -420,6 +543,44 @@
 					"@loader_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFColorPickerLoupeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		23BE2D9E2245B7BC0074E85D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ColorPickerTestApp/ColorPickerTestApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				INFOPLIST_FILE = ColorPickerTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.ColorPickerTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		23BE2D9F2245B7BC0074E85D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ColorPickerTestApp/ColorPickerTestApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				INFOPLIST_FILE = ColorPickerTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.ColorPickerTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -451,6 +612,15 @@
 			buildConfigurations = (
 				23BE2D882245AD850074E85D /* Debug */,
 				23BE2D892245AD850074E85D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23BE2D9D2245B7BC0074E85D /* Build configuration list for PBXNativeTarget "ColorPickerTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23BE2D9E2245B7BC0074E85D /* Debug */,
+				23BE2D9F2245B7BC0074E85D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
