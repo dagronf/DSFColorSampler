@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Darren Ford" => "dford_au-reg@yahoo.com" }
   s.social_media_url   = ""
-  s.osx.deployment_target = "10.11"
+  s.osx.deployment_target = "10.10"
   s.source       = { :git => ".git", :tag => s.version.to_s }
   s.source_files  = "DSFColorPickerLoupe/DSFColorPickerLoupe.swift"
   s.frameworks  = "Cocoa"

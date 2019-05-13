@@ -1,10 +1,10 @@
 # DSFColorPickerLoupe
 
-A Swift 4 class that mimics the magnifying glass in color panel of macos.
+A Swift 5, Objective-C compatible class that mimics the magnifying glass in color panel of macos.
 
 ## Overview
 
-Adapted from [https://github.com/wentingliu/ScreenPicker](https://github.com/wentingliu/ScreenPicker) for Swift 4 with bug fixes and some minor improvements.
+Adapted from [https://github.com/wentingliu/ScreenPicker](https://github.com/wentingliu/ScreenPicker) for Swift 5 with bug fixes and some minor improvements.
 
 All credit to the original author (Wenting Liu), adapted licensing from [WTFPL](http://www.wtfpl.net)
 
@@ -36,10 +36,20 @@ to your Podfile
 
 Show the color loupe, and call the provided completion block when the user selects a color.  **NOTE:** If the user cancels (hitting the esc key) the callback is not called. 
 
+#### Swift
 ```swift
-DSFColorPickerLoupe.shared.pick { (selectedColor) in
+DSFColorPickerLoupe.pick { (selectedColor) in
 	// Do something with selectedColor
 }
+```
+
+#### Objective-C
+```objc
+[DSFColorPickerLoupe pickWithLocationChange:^(NSImage* snapshot, NSColor* color) {
+   //
+} completion:^(NSColor* color) {
+   //
+}];
 ```
 
 ### Complex
@@ -47,13 +57,13 @@ DSFColorPickerLoupe.shared.pick { (selectedColor) in
 Show the color loupe, and provide callback blocks for _both_ mouse movement and selection.  For mouse movement, an image snapshot of the mouse area is also provided.
 
 ```swift
-DSFColorPickerLoupe.shared.pick(
-	locationChange: { (image, selectedColor) in
-		// Do something with the image and selectedColor at the new location
-	},
-	completion: { (selectedColor) in
-		// Do something with selectedColor
-	}
+DSFColorPickerLoupe.pick(
+   locationChange: { (image, selectedColor) in
+      // Do something with the image and selectedColor at the new location
+   },
+   completion: { (selectedColor) in
+      // Do something with selectedColor
+   }
 )
 ```
 

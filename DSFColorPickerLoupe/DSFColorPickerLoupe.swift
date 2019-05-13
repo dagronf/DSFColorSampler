@@ -45,8 +45,21 @@ import Carbon.HIToolbox
 import Cocoa
 
 @objc public class DSFColorPickerLoupe: NSObject {
-	@objc public static var shared = DSFColorPickerLoupe()
-	@objc public func pick(locationChange: LocationChangedBlock? = nil, completion: @escaping ColorSelectedBlock) {
+	@objc public static func pick(locationChange: LocationChangedBlock? = nil, completion: @escaping ColorSelectedBlock) {
+		DSFColorPickerLoupe.shared.pickColor(locationChange: locationChange, completion: completion)
+	}
+
+	public typealias LocationChangedBlock = (_ currentImage: NSImage, NSColor) -> Void
+	public typealias ColorSelectedBlock = (_ selectedColor: NSColor) -> Void
+
+	private static var shared = DSFColorPickerLoupe()
+	private var screenPickerWindow: DSFColorPickerLoupeWindow?
+	private var completionBlock: ColorSelectedBlock?
+	private var locationChangedBlock: LocationChangedBlock?
+}
+
+private extension DSFColorPickerLoupe {
+	private func pickColor(locationChange: LocationChangedBlock? = nil, completion: @escaping ColorSelectedBlock) {
 		// Cancel any previous picking
 		self.reset()
 		self.completionBlock = completion
@@ -54,15 +67,6 @@ import Cocoa
 		self.run()
 	}
 
-	public typealias LocationChangedBlock = (_ currentImage: NSImage, NSColor) -> Void
-	public typealias ColorSelectedBlock = (_ selectedColor: NSColor) -> Void
-
-	private var screenPickerWindow: DSFColorPickerLoupeWindow?
-	private var completionBlock: ColorSelectedBlock?
-	private var locationChangedBlock: LocationChangedBlock?
-}
-
-private extension DSFColorPickerLoupe {
 	func run() {
 		self.screenPickerWindow = DSFColorPickerLoupeWindow(
 			contentRect: NSRect(x: 0, y: 0, width: 125, height: 125),

@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	@IBAction func pickButtonPressed(_ sender: Any) {
 
-		DSFColorPickerLoupe.shared.pick(
+		DSFColorPickerLoupe.pick(
 			locationChange: { (image, color) in
 
 				// Update the on-screen image display
