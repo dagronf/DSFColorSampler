@@ -20,7 +20,17 @@ All credit to the original author (Wenting Liu), adapted licensing from [WTFPL](
 
 ## Usage
 
-Just add `DSFColorPickerLoupe.swift` to your project.
+### Direct
+Add `DSFColorPickerLoupe.swift` to your project.
+
+### Cocoapods
+Add
+
+`pod 'DSFColorPickerLoupe', :git => 'https://github.com/dagronf/DSFColorPickerLoupe'` 
+  
+to your Podfile
+
+## API
 
 ### Simple
 

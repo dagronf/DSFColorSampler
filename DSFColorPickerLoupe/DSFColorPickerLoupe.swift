@@ -44,8 +44,15 @@
 import Carbon.HIToolbox
 import Cocoa
 
-public class DSFColorPickerLoupe: NSObject {
-	public static var shared = DSFColorPickerLoupe()
+@objc public class DSFColorPickerLoupe: NSObject {
+	@objc public static var shared = DSFColorPickerLoupe()
+	@objc public func pick(locationChange: LocationChangedBlock? = nil, completion: @escaping ColorSelectedBlock) {
+		// Cancel any previous picking
+		self.reset()
+		self.completionBlock = completion
+		self.locationChangedBlock = locationChange
+		self.run()
+	}
 
 	public typealias LocationChangedBlock = (_ currentImage: NSImage, NSColor) -> Void
 	public typealias ColorSelectedBlock = (_ selectedColor: NSColor) -> Void
@@ -53,14 +60,6 @@ public class DSFColorPickerLoupe: NSObject {
 	private var screenPickerWindow: DSFColorPickerLoupeWindow?
 	private var completionBlock: ColorSelectedBlock?
 	private var locationChangedBlock: LocationChangedBlock?
-
-	public func pick(locationChange: LocationChangedBlock? = nil, completion: @escaping ColorSelectedBlock) {
-		// Cancel any previous picking
-		self.reset()
-		self.completionBlock = completion
-		self.locationChangedBlock = locationChange
-		self.run()
-	}
 }
 
 private extension DSFColorPickerLoupe {
