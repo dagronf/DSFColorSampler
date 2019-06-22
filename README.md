@@ -1,6 +1,8 @@
-# DSFColorPickerLoupe
+# DSFColorSampler
 
 A Swift 5, Objective-C compatible class that mimics the magnifying glass in color panel of macos.
+
+API Compatible with NSColorSampler (announced in 10.15)
 
 ## Overview
 
@@ -21,12 +23,12 @@ All credit to the original author (Wenting Liu), adapted licensing from [WTFPL](
 ## Usage
 
 ### Direct
-Add `DSFColorPickerLoupe.swift` to your project.
+Add `DSFColorSampler.swift` to your project.
 
 ### Cocoapods
 Add
 
-`pod 'DSFColorPickerLoupe', :git => 'https://github.com/dagronf/DSFColorPickerLoupe'` 
+`pod 'DSFColorSampler', :git => 'https://github.com/dagronf/DSFColorSampler'` 
   
 to your Podfile
 
@@ -34,20 +36,25 @@ to your Podfile
 
 ### Simple
 
-Show the color loupe, and call the provided completion block when the user selects a color.  **NOTE:** If the user cancels (hitting the esc key) the callback is not called. 
+Show the color loupe, and call the provided completion block when the user selects a color.  
 
 #### Swift
 ```swift
-DSFColorPickerLoupe.pick { (selectedColor) in
-	// Do something with selectedColor
+DSFColorSampler.show { (selectedColor) in
+   if let selectedColor = selectedColor {
+      // Do something with selectedColor
+   }
+   else {
+      // User cancelled
+   }
 }
 ```
 
 #### Objective-C
 ```objc
-[DSFColorPickerLoupe pickWithLocationChange:^(NSImage* snapshot, NSColor* color) {
+[DSFColorSampler showWithLocationChange:^(NSImage* snapshot, NSColor* color) {
    //
-} completion:^(NSColor* color) {
+} selectionHandler:^(NSColor* color) {
    //
 }];
 ```
@@ -57,14 +64,29 @@ DSFColorPickerLoupe.pick { (selectedColor) in
 Show the color loupe, and provide callback blocks for _both_ mouse movement and selection.  For mouse movement, an image snapshot of the mouse area is also provided.
 
 ```swift
-DSFColorPickerLoupe.pick(
+DSFColorSampler.pick(
    locationChange: { (image, selectedColor) in
       // Do something with the image and selectedColor at the new location
    },
-   completion: { (selectedColor) in
+   selectionHandler: { (selectedColor) in
       // Do something with selectedColor
    }
 )
+```
+
+## Compatibility with NSColorSampler (10.15 Catalina)
+
+```swift
+let sampler = DSFColorSampler()
+
+sampler.show { (selectedColor) in
+   if let selectedColor = selectedColor {
+      // Do something with selectedColor
+   }
+   else {
+      // User cancelled
+   }
+}
 ```
 
 ## License

@@ -1,6 +1,6 @@
 //
-//  DSFColorPickerLoupe.swift
-//  DSFColorPickerLoupe
+//  DSFColorSampler.swift
+//  DSFColorSampler
 //
 //  Created by Darren Ford on 23/3/19.
 //  Copyright © 2019 Darren Ford. All rights reserved.
@@ -25,13 +25,13 @@
 //
 //  Simple use case:-
 //
-//	DSFColorPickerLoupe.shared.pick { (selectedColor) in
+//	DSFColorSampler.shared.pick { (selectedColor) in
 //		// Do something with selectedColor
 //	}
 //
 //  Less simple use case:-
 //
-//	DSFColorPickerLoupe.shared.pick(
+//	DSFColorSampler.shared.pick(
 //		locationChange: { (image, selectedColor) in
 //			// Do something with the image and selectedColor at the new location
 //		},
@@ -44,31 +44,51 @@
 import Carbon.HIToolbox
 import Cocoa
 
-@objc public class DSFColorPickerLoupe: NSObject {
-	@objc public static func pick(locationChange: LocationChangedBlock? = nil, completion: @escaping ColorSelectedBlock) {
-		DSFColorPickerLoupe.shared.pickColor(locationChange: locationChange, completion: completion)
+
+/// Class to allow a user to select a color off a display
+@objc public class DSFColorSampler: NSObject {
+
+	/// Display the color selector and allow the user to select a color
+	///
+	/// - Parameters:
+	///   - locationChange: (optional) callback when the location changes to provide live feedback during selection
+	///   - selectionHandler: called when the user selects a color
+	@objc public static func show(locationChange: LocationChangedBlock? = nil, selectionHandler: @escaping ColorSelectedBlock) {
+		DSFColorSampler.shared.pickColor(locationChange: locationChange, selectionHandler: selectionHandler)
 	}
 
-	public typealias LocationChangedBlock = (_ currentImage: NSImage, NSColor) -> Void
-	public typealias ColorSelectedBlock = (_ selectedColor: NSColor) -> Void
+	/// Display the color selector and allow the user to select a color
+	///
+	/// Provided for compatibility with NSColorSampler API in 10.15 Catalina
+	///
+	/// - Parameters:
+	///   - selectionHandler: called when the user selects a color
+	@objc public func show(selectionHandler: @escaping (NSColor?) -> Void) {
+		DSFColorSampler.shared.pickColor(selectionHandler: selectionHandler)
+	}
 
-	private static var shared = DSFColorPickerLoupe()
-	private var screenPickerWindow: DSFColorPickerLoupeWindow?
-	private var completionBlock: ColorSelectedBlock?
+	/// Color selection block callback. If the user cancels the selection (pressed ESC) then selectedColor will be nil
+	public typealias ColorSelectedBlock = (_ selectedColor: NSColor?) -> Void
+
+	public typealias LocationChangedBlock = (_ currentImage: NSImage, NSColor) -> Void
+
+	private static var shared = DSFColorSampler()
+	private var screenPickerWindow: DSFColorSamplerWindow?
+	private var selectionHandlerBlock: ColorSelectedBlock?
 	private var locationChangedBlock: LocationChangedBlock?
 }
 
-private extension DSFColorPickerLoupe {
-	private func pickColor(locationChange: LocationChangedBlock? = nil, completion: @escaping ColorSelectedBlock) {
+private extension DSFColorSampler {
+	private func pickColor(locationChange: LocationChangedBlock? = nil, selectionHandler: @escaping ColorSelectedBlock) {
 		// Cancel any previous picking
 		self.reset()
-		self.completionBlock = completion
+		self.selectionHandlerBlock = selectionHandler
 		self.locationChangedBlock = locationChange
 		self.run()
 	}
 
 	func run() {
-		self.screenPickerWindow = DSFColorPickerLoupeWindow(
+		self.screenPickerWindow = DSFColorSamplerWindow(
 			contentRect: NSRect(x: 0, y: 0, width: 125, height: 125),
 			styleMask: .borderless,
 			backing: .buffered,
@@ -100,44 +120,44 @@ private extension DSFColorPickerLoupe {
 		NSCursor.unhide()
 		NotificationCenter.default.removeObserver(self)
 		self.screenPickerWindow = nil
-		self.completionBlock = nil
+		self.selectionHandlerBlock = nil
 		self.locationChangedBlock = nil
 	}
 }
 
-extension DSFColorPickerLoupe: DSFColorPickerLoupeDelegate {
-	fileprivate func window(_: DSFColorPickerLoupeWindow, clickedAtPoint _: CGPoint, withColor: NSColor) {
-		self.completionBlock?(withColor)
+extension DSFColorSampler: DSFColorSamplerDelegate {
+	fileprivate func window(_: DSFColorSamplerWindow, clickedAtPoint _: CGPoint, withColor: NSColor?) {
+		self.selectionHandlerBlock?(withColor)
 		self.reset()
 	}
 
-	fileprivate func window(_: DSFColorPickerLoupeWindow, moveToPoint _: CGPoint, withImage: NSImage, color: NSColor) {
+	fileprivate func window(_: DSFColorSamplerWindow, moveToPoint _: CGPoint, withImage: NSImage, color: NSColor) {
 		self.locationChangedBlock?(withImage, color)
 	}
 
 	public func windowDidBecomeKey(_ notification: Notification) {
-		if let obj = notification.object as? DSFColorPickerLoupeWindow,
+		if let obj = notification.object as? DSFColorSamplerWindow,
 			obj == self.screenPickerWindow {
 			obj.acceptsMouseMovedEvents = true
 		}
 	}
 
 	public func windowDidResignKey(_ notification: Notification) {
-		if let obj = notification.object as? DSFColorPickerLoupeWindow,
+		if let obj = notification.object as? DSFColorSamplerWindow,
 			obj == self.screenPickerWindow {
 			self.reset()
 		}
 	}
 }
 
-// MARK: - DSFColorPickerLoupeWindow
+// MARK: - DSFColorSamplerWindow
 
-private protocol DSFColorPickerLoupeDelegate: NSWindowDelegate {
-	func window(_ window: DSFColorPickerLoupeWindow, clickedAtPoint point: CGPoint, withColor: NSColor)
-	func window(_ window: DSFColorPickerLoupeWindow, moveToPoint point: CGPoint, withImage: NSImage, color: NSColor)
+private protocol DSFColorSamplerDelegate: NSWindowDelegate {
+	func window(_ window: DSFColorSamplerWindow, clickedAtPoint point: CGPoint, withColor: NSColor?)
+	func window(_ window: DSFColorSamplerWindow, moveToPoint point: CGPoint, withImage: NSImage, color: NSColor)
 }
 
-private class DSFColorPickerLoupeWindow: NSWindow {
+private class DSFColorSamplerWindow: NSWindow {
 	private var pixelZoom: CGFloat = 7
 
 	var _image: CGImage?
@@ -163,7 +183,7 @@ private class DSFColorPickerLoupeWindow: NSWindow {
 		self.level = .popUpMenu
 		self.ignoresMouseEvents = false
 
-		let captureView = DSFColorPickerLoupeView(frame: self.frame)
+		let captureView = DSFColorSamplerView(frame: self.frame)
 		self.contentView = captureView
 	}
 
@@ -194,7 +214,7 @@ private class DSFColorPickerLoupeWindow: NSWindow {
 		}
 		self._image = image
 
-		if let callerDelegate = self.delegate as? DSFColorPickerLoupeDelegate {
+		if let callerDelegate = self.delegate as? DSFColorSamplerDelegate {
 			let nsImage = NSImage(cgImage: image, size: .zero)
 			if let color = image.colorAtCenter() {
 				callerDelegate.window(self, moveToPoint: point, withImage: nsImage, color: color)
@@ -207,7 +227,7 @@ private class DSFColorPickerLoupeWindow: NSWindow {
 		)
 		self.setFrameOrigin(origin)
 
-		let captureView = self.contentView as! DSFColorPickerLoupeView
+		let captureView = self.contentView as! DSFColorSamplerView
 		captureView._image = image
 		captureView.needsDisplay = true
 
@@ -220,7 +240,7 @@ private class DSFColorPickerLoupeWindow: NSWindow {
 		if NSPointInRect(point, f) {
 			if let image = _image,
 				let correctedColor = image.colorAtCenter(),
-				let callerDelegate = self.delegate as? DSFColorPickerLoupeDelegate {
+				let callerDelegate = self.delegate as? DSFColorSamplerDelegate {
 				callerDelegate.window(self, clickedAtPoint: point, withColor: correctedColor)
 			}
 			self.orderOut(self)
@@ -235,7 +255,7 @@ private class DSFColorPickerLoupeWindow: NSWindow {
 		}
 		self.pixelZoom = self.pixelZoom.clamped(to: 2 ... 24)
 
-		(self.contentView as? DSFColorPickerLoupeView)?.pixelZoom = self.pixelZoom
+		(self.contentView as? DSFColorSamplerView)?.pixelZoom = self.pixelZoom
 
 		self.mouseMoved(with: event)
 
@@ -244,14 +264,20 @@ private class DSFColorPickerLoupeWindow: NSWindow {
 
 	override func keyDown(with event: NSEvent) {
 		if event.keyCode == kVK_Escape {
+
+			if let callerDelegate = self.delegate as? DSFColorSamplerDelegate {
+				callerDelegate.window(self, clickedAtPoint: .zero, withColor: nil)
+			}
+
 			self.orderOut(self)
+
 		}
 	}
 }
 
-// MARK: - DSFColorPickerLoupeView
+// MARK: - DSFColorSamplerView
 
-private class DSFColorPickerLoupeView: NSView {
+private class DSFColorSamplerView: NSView {
 	var pixelZoom: CGFloat = 7
 	var _image: CGImage?
 

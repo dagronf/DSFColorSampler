@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:DSFColorPickerLoupe.xcodeproj">
+      location = "self:/Users/dford/Projects/Projects/DSFColorPickerLoupe/DSFColorSampler.xcodeproj">
    </FileRef>
 </Workspace>

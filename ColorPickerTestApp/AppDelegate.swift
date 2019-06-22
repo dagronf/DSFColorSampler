@@ -25,7 +25,7 @@
 //
 
 import Cocoa
-import DSFColorPickerLoupe
+import DSFColorSampler
 
 class CustomImageView: NSImageView {
 	override func draw(_ dirtyRect: NSRect) {
@@ -41,6 +41,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet weak var color: NSColorWell!
 	@IBOutlet weak var image: NSImageView!
 
+	let sampler = DSFColorSampler()
+
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 	}
 
@@ -50,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	@IBAction func pickButtonPressed(_ sender: Any) {
 
-		DSFColorPickerLoupe.pick(
+		DSFColorSampler.show(
 			locationChange: { (image, color) in
 
 				// Update the on-screen image display
@@ -60,9 +62,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 				// Update the color well
 				self.color.color = color
 			},
-			completion: { (selectedColor) in
+			selectionHandler: { (selectedColor) in
 				// Update the color well
-				self.color.color = selectedColor
+				if let selectedColor = selectedColor {
+					self.color.color = selectedColor
+				}
 			}
 		)
 	}
