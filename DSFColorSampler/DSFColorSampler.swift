@@ -25,13 +25,13 @@
 //
 //  Simple use case:-
 //
-//	DSFColorSampler.shared.pick { (selectedColor) in
+//	DSFColorSampler.shared.show { (selectedColor) in
 //		// Do something with selectedColor
 //	}
 //
 //  Less simple use case:-
 //
-//	DSFColorSampler.shared.pick(
+//	DSFColorSampler.shared.show(
 //		locationChange: { (image, selectedColor) in
 //			// Do something with the image and selectedColor at the new location
 //		},
@@ -44,10 +44,8 @@
 import Carbon.HIToolbox
 import Cocoa
 
-
 /// Class to allow a user to select a color off a display
 @objc public class DSFColorSampler: NSObject {
-
 	/// Display the color selector and allow the user to select a color
 	///
 	/// - Parameters:
@@ -209,8 +207,8 @@ private class DSFColorSamplerWindow: NSWindow {
 			.optionOnScreenBelowWindow,
 			windowID,
 			.nominalResolution
-		) else {
-			return
+			) else {
+				return
 		}
 		self._image = image
 
@@ -264,13 +262,11 @@ private class DSFColorSamplerWindow: NSWindow {
 
 	override func keyDown(with event: NSEvent) {
 		if event.keyCode == kVK_Escape {
-
 			if let callerDelegate = self.delegate as? DSFColorSamplerDelegate {
 				callerDelegate.window(self, clickedAtPoint: .zero, withColor: nil)
 			}
 
 			self.orderOut(self)
-
 		}
 	}
 }
@@ -281,8 +277,18 @@ private class DSFColorSamplerView: NSView {
 	var pixelZoom: CGFloat = 7
 	var _image: CGImage?
 
+	// Wrapper to work around lack of cgContext on 10.9
+	private var currentContext: CGContext? {
+		guard let current = NSGraphicsContext.current else { return nil }
+		if #available(OSX 10.10, *) {
+			return current.cgContext
+		} else {
+			return Unmanaged<CGContext>.fromOpaque(current.graphicsPort).takeUnretainedValue()
+		}
+	}
+
 	override func draw(_: NSRect) {
-		guard let context = NSGraphicsContext.current?.cgContext else {
+		guard let context = self.currentContext else {
 			fatalError()
 		}
 

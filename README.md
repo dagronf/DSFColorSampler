@@ -1,6 +1,6 @@
 # DSFColorSampler
 
-A Swift 5, Objective-C compatible class that mimics the magnifying glass in color panel of macos.
+A Swift 5, Objective-C compatible class that mimics the magnifying glass in color panel of macos.  Compatible back to 10.9
 
 API Compatible with NSColorSampler (announced in 10.15)
 
@@ -64,7 +64,7 @@ DSFColorSampler.show { (selectedColor) in
 Show the color loupe, and provide callback blocks for _both_ mouse movement and selection.  For mouse movement, an image snapshot of the mouse area is also provided.
 
 ```swift
-DSFColorSampler.pick(
+DSFColorSampler.show(
    locationChange: { (image, selectedColor) in
       // Do something with the image and selectedColor at the new location
    },
