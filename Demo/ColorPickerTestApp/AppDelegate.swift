@@ -5,7 +5,7 @@
 //  Created by Darren Ford on 23/3/19.
 //  Copyright © 2019 Darren Ford. All rights reserved.
 
-//  Adapted from https://github.com/wentingliu/ScreenPicker for Swift 4
+//  Adapted from https://github.com/wentingliu/ScreenPicker for Swift 5
 //  All credit to the original author.
 
 //  MIT license
@@ -25,6 +25,7 @@
 //
 
 import Cocoa
+
 import DSFColorSampler
 
 class CustomImageView: NSImageView {

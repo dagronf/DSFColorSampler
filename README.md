@@ -1,5 +1,8 @@
 # DSFColorSampler
 
+![](https://img.shields.io/github/v/tag/dagronf/DSFColorSampler) ![](https://img.shields.io/badge/macOS-10.9+-red) ![](https://img.shields.io/badge/Swift-5.0-orange.svg)
+![](https://img.shields.io/badge/License-MIT-lightgrey) [![](https://img.shields.io/badge/pod-compatible-informational)](https://cocoapods.org) [![](https://img.shields.io/badge/spm-compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager)
+
 A Swift 5, Objective-C compatible class that mimics the magnifying glass in color panel of macos.  Compatible back to 10.9
 
 API Compatible with NSColorSampler (announced in 10.15)

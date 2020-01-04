@@ -3,19 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23B19A3922483AB9004FD299 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 23B19A3722483AB9004FD299 /* LICENSE */; };
-		23B19A3A22483AB9004FD299 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 23B19A3822483AB9004FD299 /* README.md */; };
-		23B19A3D22486756004FD299 /* DSFColorSampler.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23BE2D702245AD850074E85D /* DSFColorSampler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23BE2D812245AD850074E85D /* DSFColorSampler.h in Headers */ = {isa = PBXBuildFile; fileRef = 23BE2D732245AD850074E85D /* DSFColorSampler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23BE2D952245B7BB0074E85D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D942245B7BB0074E85D /* AppDelegate.swift */; };
 		23BE2D972245B7BB0074E85D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23BE2D962245B7BB0074E85D /* Assets.xcassets */; };
 		23BE2D9A2245B7BC0074E85D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23BE2D982245B7BC0074E85D /* MainMenu.xib */; };
-		23BE2DA12245B7C50074E85D /* DSFColorSampler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BE2D702245AD850074E85D /* DSFColorSampler.framework */; };
-		23BE2DA32245BDCC0074E85D /* DSFColorSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2DA22245BDCC0074E85D /* DSFColorSampler.swift */; };
+		263F742C6ECAF7D3155FD086 /* Pods_ColorPickerTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9926B781DA670751750E26 /* Pods_ColorPickerTestApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,41 +20,29 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				23B19A3D22486756004FD299 /* DSFColorSampler.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		23ACF968228A32CC00FF6594 /* DSFColorSampler.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DSFColorSampler.podspec; sourceTree = "<group>"; };
-		23B19A3722483AB9004FD299 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		23B19A3822483AB9004FD299 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		23BE2D702245AD850074E85D /* DSFColorSampler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DSFColorSampler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		23BE2D732245AD850074E85D /* DSFColorSampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSFColorSampler.h; sourceTree = "<group>"; };
-		23BE2D742245AD850074E85D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23BE2D922245B7BB0074E85D /* ColorPickerTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPickerTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BE2D942245B7BB0074E85D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23BE2D962245B7BB0074E85D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23BE2D992245B7BC0074E85D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		23BE2D9B2245B7BC0074E85D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23BE2D9C2245B7BC0074E85D /* ColorPickerTestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorPickerTestApp.entitlements; sourceTree = "<group>"; };
-		23BE2DA22245BDCC0074E85D /* DSFColorSampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFColorSampler.swift; sourceTree = "<group>"; };
+		62AAA7BBAD4CFDE79B98D16F /* Pods-ColorPickerTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorPickerTestApp.debug.xcconfig"; path = "Target Support Files/Pods-ColorPickerTestApp/Pods-ColorPickerTestApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D55FC8EA235D9717E55679A6 /* Pods-ColorPickerTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorPickerTestApp.release.xcconfig"; path = "Target Support Files/Pods-ColorPickerTestApp/Pods-ColorPickerTestApp.release.xcconfig"; sourceTree = "<group>"; };
+		DB9926B781DA670751750E26 /* Pods_ColorPickerTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColorPickerTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		23BE2D6D2245AD850074E85D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		23BE2D8F2245B7BB0074E85D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23BE2DA12245B7C50074E85D /* DSFColorSampler.framework in Frameworks */,
+				263F742C6ECAF7D3155FD086 /* Pods_ColorPickerTestApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,33 +52,19 @@
 		23BE2D662245AD850074E85D = {
 			isa = PBXGroup;
 			children = (
-				23B19A3722483AB9004FD299 /* LICENSE */,
-				23B19A3822483AB9004FD299 /* README.md */,
-				23ACF968228A32CC00FF6594 /* DSFColorSampler.podspec */,
-				23BE2D722245AD850074E85D /* DSFColorSampler */,
 				23BE2D932245B7BB0074E85D /* ColorPickerTestApp */,
 				23BE2D712245AD850074E85D /* Products */,
 				23BE2DA02245B7C50074E85D /* Frameworks */,
+				C7F41B05B8BCE282818D7C9F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		23BE2D712245AD850074E85D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23BE2D702245AD850074E85D /* DSFColorSampler.framework */,
 				23BE2D922245B7BB0074E85D /* ColorPickerTestApp.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		23BE2D722245AD850074E85D /* DSFColorSampler */ = {
-			isa = PBXGroup;
-			children = (
-				23BE2D732245AD850074E85D /* DSFColorSampler.h */,
-				23BE2D742245AD850074E85D /* Info.plist */,
-				23BE2DA22245BDCC0074E85D /* DSFColorSampler.swift */,
-			);
-			path = DSFColorSampler;
 			sourceTree = "<group>";
 		};
 		23BE2D932245B7BB0074E85D /* ColorPickerTestApp */ = {
@@ -113,50 +82,33 @@
 		23BE2DA02245B7C50074E85D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB9926B781DA670751750E26 /* Pods_ColorPickerTestApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C7F41B05B8BCE282818D7C9F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				62AAA7BBAD4CFDE79B98D16F /* Pods-ColorPickerTestApp.debug.xcconfig */,
+				D55FC8EA235D9717E55679A6 /* Pods-ColorPickerTestApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		23BE2D6B2245AD850074E85D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23BE2D812245AD850074E85D /* DSFColorSampler.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		23BE2D6F2245AD850074E85D /* DSFColorSampler */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 23BE2D842245AD850074E85D /* Build configuration list for PBXNativeTarget "DSFColorSampler" */;
-			buildPhases = (
-				23BE2D6B2245AD850074E85D /* Headers */,
-				23BE2D6C2245AD850074E85D /* Sources */,
-				23BE2D6D2245AD850074E85D /* Frameworks */,
-				23BE2D6E2245AD850074E85D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DSFColorSampler;
-			productName = DSFColorPickerLoupe;
-			productReference = 23BE2D702245AD850074E85D /* DSFColorSampler.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		23BE2D912245B7BB0074E85D /* ColorPickerTestApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23BE2D9D2245B7BC0074E85D /* Build configuration list for PBXNativeTarget "ColorPickerTestApp" */;
 			buildPhases = (
+				E489057B5C349C6C09031F73 /* [CP] Check Pods Manifest.lock */,
 				23BE2D8E2245B7BB0074E85D /* Sources */,
 				23BE2D8F2245B7BB0074E85D /* Frameworks */,
 				23BE2D902245B7BB0074E85D /* Resources */,
 				23B19A3C22486748004FD299 /* CopyFiles */,
+				AB4599595161BD8A44AA4FD2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,10 +129,6 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Darren Ford";
 				TargetAttributes = {
-					23BE2D6F2245AD850074E85D = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
-					};
 					23BE2D912245B7BB0074E85D = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -199,22 +147,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				23BE2D6F2245AD850074E85D /* DSFColorSampler */,
 				23BE2D912245B7BB0074E85D /* ColorPickerTestApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		23BE2D6E2245AD850074E85D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23B19A3A22483AB9004FD299 /* README.md in Resources */,
-				23B19A3922483AB9004FD299 /* LICENSE in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		23BE2D902245B7BB0074E85D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,15 +164,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXSourcesBuildPhase section */
-		23BE2D6C2245AD850074E85D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+/* Begin PBXShellScriptBuildPhase section */
+		AB4599595161BD8A44AA4FD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23BE2DA32245BDCC0074E85D /* DSFColorSampler.swift in Sources */,
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ColorPickerTestApp/Pods-ColorPickerTestApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ColorPickerTestApp/Pods-ColorPickerTestApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ColorPickerTestApp/Pods-ColorPickerTestApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
+		E489057B5C349C6C09031F73 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ColorPickerTestApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		23BE2D8E2245B7BB0074E85D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,65 +352,9 @@
 			};
 			name = Release;
 		};
-		23BE2D852245AD850074E85D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3L6RK3LGGW;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = DSFColorSampler/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFColorSampler;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		23BE2D862245AD850074E85D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3L6RK3LGGW;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = DSFColorSampler/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFColorSampler;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
 		23BE2D9E2245B7BC0074E85D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62AAA7BBAD4CFDE79B98D16F /* Pods-ColorPickerTestApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColorPickerTestApp/ColorPickerTestApp.entitlements;
@@ -451,7 +367,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.ColorPickerTestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.demo.ColorPickerTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -459,6 +375,7 @@
 		};
 		23BE2D9F2245B7BC0074E85D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D55FC8EA235D9717E55679A6 /* Pods-ColorPickerTestApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColorPickerTestApp/ColorPickerTestApp.entitlements;
@@ -471,7 +388,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.ColorPickerTestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.demo.ColorPickerTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -485,15 +402,6 @@
 			buildConfigurations = (
 				23BE2D822245AD850074E85D /* Debug */,
 				23BE2D832245AD850074E85D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		23BE2D842245AD850074E85D /* Build configuration list for PBXNativeTarget "DSFColorSampler" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				23BE2D852245AD850074E85D /* Debug */,
-				23BE2D862245AD850074E85D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

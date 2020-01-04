@@ -1,0 +1,16 @@
+PODS:
+  - DSFColorSampler (1.1)
+
+DEPENDENCIES:
+  - DSFColorSampler (from `../`)
+
+EXTERNAL SOURCES:
+  DSFColorSampler:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DSFColorSampler: 7cdd378089769f5d44231659301920804c791d24
+
+PODFILE CHECKSUM: fe411185268fc588090d9b843557c5e3fb6b3662
+
+COCOAPODS: 1.7.4

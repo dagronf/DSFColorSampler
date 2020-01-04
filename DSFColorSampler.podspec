@@ -9,9 +9,9 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Darren Ford" => "dford_au-reg@yahoo.com" }
   s.social_media_url   = ""
-  s.osx.deployment_target = "10.10"
+  s.osx.deployment_target = "10.9"
   s.source       = { :git => ".git", :tag => s.version.to_s }
-  s.source_files  = "DSFColorSampler/DSFColorSampler.swift"
+  s.source_files  = "Sources/DSFColorSampler/DSFColorSampler.swift"
   s.frameworks  = "Cocoa"
   s.swift_version = "5.0"
 end
