@@ -3,7 +3,7 @@
 //  DSFColorSampler
 //
 //  Created by Darren Ford on 23/3/19.
-//  Copyright © 2019 Darren Ford. All rights reserved.
+//  Copyright © 2021 Darren Ford. All rights reserved.
 //
 //  Adapted from https://github.com/wentingliu/ScreenPicker for Swift 4 with bug fixes
 //  All credit to the original author (original license: http://www.wtfpl.net)
