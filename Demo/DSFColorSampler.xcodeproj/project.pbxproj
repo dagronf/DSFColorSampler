@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		233F8E6725B25B4E00A3CA72 /* DSFColorSampler in Frameworks */ = {isa = PBXBuildFile; productRef = 233F8E6625B25B4E00A3CA72 /* DSFColorSampler */; };
+		233F8E7025B25C9B00A3CA72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 233F8E6F25B25C9B00A3CA72 /* AppDelegate.m */; };
+		233F8E7225B25C9B00A3CA72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 233F8E7125B25C9B00A3CA72 /* Assets.xcassets */; };
+		233F8E7525B25C9B00A3CA72 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 233F8E7325B25C9B00A3CA72 /* MainMenu.xib */; };
+		233F8E7825B25C9B00A3CA72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 233F8E7725B25C9B00A3CA72 /* main.m */; };
+		233F8E8025B25CD500A3CA72 /* DSFColorSampler in Frameworks */ = {isa = PBXBuildFile; productRef = 233F8E7F25B25CD500A3CA72 /* DSFColorSampler */; };
 		23BE2D952245B7BB0074E85D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D942245B7BB0074E85D /* AppDelegate.swift */; };
 		23BE2D972245B7BB0074E85D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23BE2D962245B7BB0074E85D /* Assets.xcassets */; };
 		23BE2D9A2245B7BC0074E85D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23BE2D982245B7BC0074E85D /* MainMenu.xib */; };
@@ -27,6 +32,14 @@
 
 /* Begin PBXFileReference section */
 		233F8E6425B25B0400A3CA72 /* DSFColorSampler */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DSFColorSampler; path = ..; sourceTree = "<group>"; };
+		233F8E6C25B25C9B00A3CA72 /* DSFColorSampler Objc Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSFColorSampler Objc Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		233F8E6E25B25C9B00A3CA72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		233F8E6F25B25C9B00A3CA72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		233F8E7125B25C9B00A3CA72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		233F8E7425B25C9B00A3CA72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		233F8E7625B25C9B00A3CA72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		233F8E7725B25C9B00A3CA72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		233F8E7925B25C9B00A3CA72 /* DSFColorSampler_Objc_Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DSFColorSampler_Objc_Demo.entitlements; sourceTree = "<group>"; };
 		23BE2D922245B7BB0074E85D /* ColorPickerTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPickerTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BE2D942245B7BB0074E85D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23BE2D962245B7BB0074E85D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,6 +49,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		233F8E6925B25C9B00A3CA72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233F8E8025B25CD500A3CA72 /* DSFColorSampler in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		23BE2D8F2245B7BB0074E85D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,11 +75,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		233F8E6D25B25C9B00A3CA72 /* DSFColorSampler Objc Demo */ = {
+			isa = PBXGroup;
+			children = (
+				233F8E6E25B25C9B00A3CA72 /* AppDelegate.h */,
+				233F8E6F25B25C9B00A3CA72 /* AppDelegate.m */,
+				233F8E7125B25C9B00A3CA72 /* Assets.xcassets */,
+				233F8E7325B25C9B00A3CA72 /* MainMenu.xib */,
+				233F8E7625B25C9B00A3CA72 /* Info.plist */,
+				233F8E7725B25C9B00A3CA72 /* main.m */,
+				233F8E7925B25C9B00A3CA72 /* DSFColorSampler_Objc_Demo.entitlements */,
+			);
+			path = "DSFColorSampler Objc Demo";
+			sourceTree = "<group>";
+		};
 		23BE2D662245AD850074E85D = {
 			isa = PBXGroup;
 			children = (
 				233F8E6425B25B0400A3CA72 /* DSFColorSampler */,
 				23BE2D932245B7BB0074E85D /* ColorPickerTestApp */,
+				233F8E6D25B25C9B00A3CA72 /* DSFColorSampler Objc Demo */,
 				23BE2D712245AD850074E85D /* Products */,
 				233F8E6525B25B4E00A3CA72 /* Frameworks */,
 			);
@@ -68,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				23BE2D922245B7BB0074E85D /* ColorPickerTestApp.app */,
+				233F8E6C25B25C9B00A3CA72 /* DSFColorSampler Objc Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +124,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		233F8E6B25B25C9B00A3CA72 /* DSFColorSampler Objc Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 233F8E7A25B25C9B00A3CA72 /* Build configuration list for PBXNativeTarget "DSFColorSampler Objc Demo" */;
+			buildPhases = (
+				233F8E6825B25C9B00A3CA72 /* Sources */,
+				233F8E6925B25C9B00A3CA72 /* Frameworks */,
+				233F8E6A25B25C9B00A3CA72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DSFColorSampler Objc Demo";
+			packageProductDependencies = (
+				233F8E7F25B25CD500A3CA72 /* DSFColorSampler */,
+			);
+			productName = "DSFColorSampler Objc Demo";
+			productReference = 233F8E6C25B25C9B00A3CA72 /* DSFColorSampler Objc Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		23BE2D912245B7BB0074E85D /* ColorPickerTestApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23BE2D9D2245B7BC0074E85D /* Build configuration list for PBXNativeTarget "ColorPickerTestApp" */;
@@ -118,6 +175,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Darren Ford";
 				TargetAttributes = {
+					233F8E6B25B25C9B00A3CA72 = {
+						CreatedOnToolsVersion = 12.3;
+					};
 					23BE2D912245B7BB0074E85D = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -137,11 +197,21 @@
 			projectRoot = "";
 			targets = (
 				23BE2D912245B7BB0074E85D /* ColorPickerTestApp */,
+				233F8E6B25B25C9B00A3CA72 /* DSFColorSampler Objc Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		233F8E6A25B25C9B00A3CA72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233F8E7225B25C9B00A3CA72 /* Assets.xcassets in Resources */,
+				233F8E7525B25C9B00A3CA72 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		23BE2D902245B7BB0074E85D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -154,6 +224,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		233F8E6825B25C9B00A3CA72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233F8E7825B25C9B00A3CA72 /* main.m in Sources */,
+				233F8E7025B25C9B00A3CA72 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		23BE2D8E2245B7BB0074E85D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,6 +244,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		233F8E7325B25C9B00A3CA72 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				233F8E7425B25C9B00A3CA72 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		23BE2D982245B7BC0074E85D /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -176,6 +263,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		233F8E7B25B25C9B00A3CA72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = "DSFColorSampler Objc Demo/DSFColorSampler_Objc_Demo.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "DSFColorSampler Objc Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.darrenford.DSFColorSampler-Objc-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		233F8E7C25B25C9B00A3CA72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = "DSFColorSampler Objc Demo/DSFColorSampler_Objc_Demo.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "DSFColorSampler Objc Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.darrenford.DSFColorSampler-Objc-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		23BE2D822245AD850074E85D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -342,6 +473,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		233F8E7A25B25C9B00A3CA72 /* Build configuration list for PBXNativeTarget "DSFColorSampler Objc Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233F8E7B25B25C9B00A3CA72 /* Debug */,
+				233F8E7C25B25C9B00A3CA72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		23BE2D6A2245AD850074E85D /* Build configuration list for PBXProject "DSFColorSampler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -364,6 +504,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		233F8E6625B25B4E00A3CA72 /* DSFColorSampler */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DSFColorSampler;
+		};
+		233F8E7F25B25CD500A3CA72 /* DSFColorSampler */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DSFColorSampler;
 		};

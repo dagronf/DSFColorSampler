@@ -3,7 +3,7 @@
 ![](https://img.shields.io/github/v/tag/dagronf/DSFColorSampler) ![](https://img.shields.io/badge/macOS-10.10+-red) ![](https://img.shields.io/badge/Swift-5.0-orange.svg)
 ![](https://img.shields.io/badge/License-MIT-lightgrey) [![](https://img.shields.io/badge/pod-compatible-informational)](https://cocoapods.org) [![](https://img.shields.io/badge/spm-compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager)
 
-A Swift 5, Objective-C compatible class that mimics the magnifying glass in color panel of macos. Compatible back to 10.10
+A Swift 5, Objective-C compatible class that mimics the magnifying glass in color panel of macos. Compatible back to 10.9
 
 API Compatible with NSColorSampler (announced in 10.15)
 
@@ -26,7 +26,14 @@ All credit to the original author (Wenting Liu), adapted licensing from [WTFPL](
 ## Usage
 
 ### Direct
+
 Add `DSFColorSampler.swift` to your project.
+
+### Swift Package Manager
+
+Add `https://github.com/dagronf/DSFColorSampler` to your project.
+
+Swift Package Manager support is not available for 10.9, so if you need to support 10.9 use the CocoaPods or Direct methods.
 
 ### Cocoapods
 Add
@@ -92,7 +99,17 @@ sampler.show { (selectedColor) in
 }
 ```
 
-## License
+# Releases
+
+### `1.4.0`
+
+* Added objc demo.
+
+### `1.3.0`
+
+* Removed unfinshed demo app.
+
+# License
 
 ```
 MIT License

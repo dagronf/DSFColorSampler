@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "DSFColorSampler"
-  s.version      = "1.1"
+  s.version      = "1.4.0"
   s.summary      = "macOS color picker loupe"
   s.description  = <<-DESC
     A Swift 5 class that mimics the magnifying glass in color panel of macOS.
