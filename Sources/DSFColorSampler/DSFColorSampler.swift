@@ -196,7 +196,7 @@ private class DSFColorSamplerWindow: NSWindow {
 		}
 
 		let captureSize: CGFloat = self.frame.size.width / self.pixelZoom
-		let screenFrame: NSRect = NSScreen.main!.frame
+		let screenFrame: NSRect = CGDisplayBounds(displayID)
 		let x: CGFloat = floor(point.x) - floor(captureSize / 2)
 		let y: CGFloat = screenFrame.size.height - floor(point.y) - floor(captureSize / 2)
 

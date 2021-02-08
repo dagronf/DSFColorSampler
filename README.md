@@ -101,6 +101,10 @@ sampler.show { (selectedColor) in
 
 # Releases
 
+### `1.5.0`
+
+* Fixed color picking on multi-screen setups (including dragging the loupe from one screen to another). Previously could only pick colors from the main screen and additional screens would show a 'blank' color.
+
 ### `1.4.0`
 
 * Added objc demo.
