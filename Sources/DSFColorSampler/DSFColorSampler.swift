@@ -46,12 +46,19 @@ import Cocoa
 
 /// Class to allow a user to select a color off a display
 @objc public class DSFColorSampler: NSObject {
+
+	/// Color selection block callback. If the user cancels the selection (pressed ESC) then selectedColor will be nil
+	public typealias ColorSelectedBlock = (_ selectedColor: NSColor?) -> Void
+	/// Color and location selection block callback. If the user cancels the selection (pressed ESC) then selectedColor will be nil
+	public typealias LocationChangedBlock = (_ currentImage: NSImage, NSColor) -> Void
+
 	/// Display the color selector and allow the user to select a color
 	///
 	/// - Parameters:
 	///   - locationChange: (optional) callback when the location changes to provide live feedback during selection
 	///   - selectionHandler: called when the user selects a color
-	@objc public static func show(locationChange: LocationChangedBlock? = nil, selectionHandler: @escaping ColorSelectedBlock) {
+	@objc public static func show(locationChange: LocationChangedBlock? = nil,
+											selectionHandler: @escaping ColorSelectedBlock) {
 		DSFColorSampler.shared.pickColor(locationChange: locationChange, selectionHandler: selectionHandler)
 	}
 
@@ -61,14 +68,24 @@ import Cocoa
 	///
 	/// - Parameters:
 	///   - selectionHandler: called when the user selects a color
-	@objc public func show(selectionHandler: @escaping (NSColor?) -> Void) {
+	@objc public func show(selectionHandler: @escaping ColorSelectedBlock) {
 		DSFColorSampler.shared.pickColor(selectionHandler: selectionHandler)
 	}
 
-	/// Color selection block callback. If the user cancels the selection (pressed ESC) then selectedColor will be nil
-	public typealias ColorSelectedBlock = (_ selectedColor: NSColor?) -> Void
-
-	public typealias LocationChangedBlock = (_ currentImage: NSImage, NSColor) -> Void
+	/// Display the color selector and allow the user to select a color. Uses NSColorSampler on 10.15 and later,
+	/// falls back to DSFColorSampler on versions lower than 10.15 for backward compatibility
+	///
+	/// - Parameters:
+	///   - selectionHandler: called when the user selects a color
+	///
+	/// Usage: DSFColorSampler.selectColor { selectedColor in ... }
+	@objc public static func selectColor(selectionHandler: @escaping ColorSelectedBlock) {
+		if #available(macOS 10.15, *) {
+			NSColorSampler().show(selectionHandler: selectionHandler)
+		} else {
+			DSFColorSampler().show(selectionHandler: selectionHandler)
+		}
+	}
 
 	private static var shared = DSFColorSampler()
 	private var screenPickerWindow: DSFColorSamplerWindow?

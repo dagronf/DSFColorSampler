@@ -5,7 +5,7 @@
 
 A Swift 5, Objective-C compatible class that mimics the magnifying glass in color panel of macos. Compatible back to 10.9
 
-API Compatible with NSColorSampler (announced in 10.15)
+API Compatible with NSColorSampler (macOS 10.15 Catalina and later)
 
 ## Overview
 
@@ -25,22 +25,15 @@ All credit to the original author (Wenting Liu), adapted licensing from [WTFPL](
 
 ## Usage
 
-### Direct
-
-Add `DSFColorSampler.swift` to your project.
-
 ### Swift Package Manager
 
 Add `https://github.com/dagronf/DSFColorSampler` to your project.
 
-Swift Package Manager support is not available for 10.9, so if you need to support 10.9 use the CocoaPods or Direct methods.
+Swift Package Manager support is not available for 10.9, so if you need to support 10.9 use the Direct method.
 
-### Cocoapods
-Add
+### Direct
 
-`pod 'DSFColorSampler', :git => 'https://github.com/dagronf/DSFColorSampler'` 
-  
-to your Podfile
+Add `DSFColorSampler.swift` to your project.
 
 ## API
 
@@ -61,6 +54,7 @@ DSFColorSampler.show { (selectedColor) in
 ```
 
 #### Objective-C
+
 ```objc
 [DSFColorSampler showWithLocationChange:^(NSImage* snapshot, NSColor* color) {
    //
@@ -69,14 +63,14 @@ DSFColorSampler.show { (selectedColor) in
 }];
 ```
 
-### Complex
+### Dynamic image and mouse colors during selection
 
 Show the color loupe, and provide callback blocks for _both_ mouse movement and selection.  For mouse movement, an image snapshot of the mouse area is also provided.
 
 ```swift
 DSFColorSampler.show(
-   locationChange: { (image, selectedColor) in
-      // Do something with the image and selectedColor at the new location
+   locationChange: { (image, currentColor) in
+      // Do something with the image and currentColor at the new location
    },
    selectionHandler: { (selectedColor) in
       // Do something with selectedColor
@@ -84,22 +78,31 @@ DSFColorSampler.show(
 )
 ```
 
-## Compatibility with NSColorSampler (10.15 Catalina)
+## Backwards compatibility for NSColorSampler (10.15+)
+
+The `selectColor` function has been added to DSFColorSampler that calls `NSColorSampler().show()` on 10.15 or later, and `DSFColorSampler().show()` on systems prior to 10.15.
+
+### Swift
 
 ```swift
-let sampler = DSFColorSampler()
-
-sampler.show { (selectedColor) in
-   if let selectedColor = selectedColor {
-      // Do something with selectedColor
-   }
-   else {
-      // User cancelled
-   }
+DSFColorSampler.selectColor { (selectedColor: NSColor?) in
+   // Do something with selectedColor
 }
 ```
 
+### Objective-C
+
+```objc
+[DSFColorSampler selectColorWithSelectionHandler:^(NSColor* _Nullable selectedColor) {
+	// Do something with
+} ];
+```
+
 # Releases
+
+### `2.0.0`
+
+* Added `selectColor` static method to provide fallback capability for system before macOS 10.15.
 
 ### `1.5.0`
 
