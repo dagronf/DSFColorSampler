@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "DSFColorSampler"
-  s.version      = "1.5.0"
+  s.version      = "2.1.0"
   s.summary      = "macOS color picker loupe"
   s.description  = <<-DESC
     A Swift 5 class that mimics the magnifying glass in color panel of macOS.
@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => ".git", :tag => s.version.to_s }
   s.source_files  = "Sources/DSFColorSampler/DSFColorSampler.swift"
   s.frameworks  = "Cocoa"
-  s.swift_version = "5.0"
+  s.swift_version = "5.3"
 end

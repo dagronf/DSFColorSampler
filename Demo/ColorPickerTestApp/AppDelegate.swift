@@ -52,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 
 	@IBAction func pickButtonPressed(_ sender: Any) {
-
+		// Call the traditional callback method
 		DSFColorSampler.show(
 			locationChange: { (image, color) in
 
@@ -70,5 +70,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 				}
 			}
 		)
+	}
+
+	@IBAction func pickButtonPressedAsync(_ sender: Any) {
+		// Call using the newer Task-based async/await calls
+		self.image.image = nil
+		Task { [weak self] in
+			self?.color.color = await DSFColorSampler.sample() ?? .clear
+		}
 	}
 }

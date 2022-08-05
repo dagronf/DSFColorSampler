@@ -3,7 +3,7 @@
 //  DSFColorSampler
 //
 //  Created by Darren Ford on 23/3/19.
-//  Copyright © 2021 Darren Ford. All rights reserved.
+//  Copyright © 2022 Darren Ford. All rights reserved.
 //
 //  Adapted from https://github.com/wentingliu/ScreenPicker for Swift 4 with bug fixes
 //  All credit to the original author (original license: http://www.wtfpl.net)
@@ -23,30 +23,43 @@
 //  OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 //  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-//  Simple use case:-
+// **Usage:**
 //
-//	DSFColorSampler.shared.show { (selectedColor) in
-//		// Do something with selectedColor
-//	}
+//  Simple use case :-
+//
+// ```swift
+//  DSFColorSampler.shared.show { (selectedColor) in
+//     // Do something with selectedColor
+//  }
+//  ```
+//
+//  Async use case :-
+//
+//  ```swift
+//  Task { [weak self] in
+//     self?.selectedColor = await DSFColorSampler.shared.sample()
+//  }
+//  ```
 //
 //  Less simple use case:-
 //
-//	DSFColorSampler.shared.show(
-//		locationChange: { (image, selectedColor) in
-//			// Do something with the image and selectedColor at the new location
-//		},
-//		completion: { (selectedColor) in
-//			// Do something with selectedColor
-//		}
-//	)
+//  ```swift
+//  DSFColorSampler.shared.show(
+//     locationChange: { (image, selectedColor) in
+//        // Do something with the image and selectedColor at the new location
+//     },
+//     completion: { (selectedColor) in
+//        // Do something with selectedColor
+//     }
+//  )
+//  ```
 //
 
 import Carbon.HIToolbox
 import Cocoa
 
-/// Class to allow a user to select a color off a display
+/// Class to allow a user to select a color from a display
 @objc public class DSFColorSampler: NSObject {
-
 	/// Color selection block callback. If the user cancels the selection (pressed ESC) then selectedColor will be nil
 	public typealias ColorSelectedBlock = (_ selectedColor: NSColor?) -> Void
 	/// Color and location selection block callback. If the user cancels the selection (pressed ESC) then selectedColor will be nil
@@ -57,9 +70,14 @@ import Cocoa
 	/// - Parameters:
 	///   - locationChange: (optional) callback when the location changes to provide live feedback during selection
 	///   - selectionHandler: called when the user selects a color
-	@objc public static func show(locationChange: LocationChangedBlock? = nil,
-											selectionHandler: @escaping ColorSelectedBlock) {
-		DSFColorSampler.shared.pickColor(locationChange: locationChange, selectionHandler: selectionHandler)
+	@objc public static func show(
+		locationChange: LocationChangedBlock? = nil,
+		selectionHandler: @escaping ColorSelectedBlock
+	) {
+		DSFColorSampler.shared.pickColor(
+			locationChange: locationChange,
+			selectionHandler: selectionHandler
+		)
 	}
 
 	/// Display the color selector and allow the user to select a color
@@ -82,10 +100,33 @@ import Cocoa
 	@objc public static func selectColor(selectionHandler: @escaping ColorSelectedBlock) {
 		if #available(macOS 10.15, *) {
 			NSColorSampler().show(selectionHandler: selectionHandler)
-		} else {
+		}
+		else {
 			DSFColorSampler().show(selectionHandler: selectionHandler)
 		}
 	}
+
+	/// An asynchronous color selector.
+	///
+	/// Returns nil if the user cancels the selection (ie. they hit the escape key)
+	@available(macOS 10.15.0, *)
+	@MainActor public static func sample() async -> NSColor? {
+		return await DSFColorSampler.shared.sample()
+	}
+
+	/// An asynchronous color selector.
+	///
+	/// Returns nil if the user cancels the selection (ie. they hit the escape key)
+	@available(macOS 10.15.0, *)
+	@MainActor public func sample() async -> NSColor? {
+		return await withCheckedContinuation { continuation in
+			DSFColorSampler.show { selectedColor in
+				continuation.resume(returning: selectedColor)
+			}
+		}
+	}
+
+	// Private
 
 	private static var shared = DSFColorSampler()
 	private var screenPickerWindow: DSFColorSamplerWindow?
@@ -94,7 +135,10 @@ import Cocoa
 }
 
 private extension DSFColorSampler {
-	private func pickColor(locationChange: LocationChangedBlock? = nil, selectionHandler: @escaping ColorSelectedBlock) {
+	private func pickColor(
+		locationChange: LocationChangedBlock? = nil,
+		selectionHandler: @escaping ColorSelectedBlock)
+	{
 		// Cancel any previous picking
 		self.reset()
 		self.selectionHandlerBlock = selectionHandler
@@ -152,14 +196,16 @@ extension DSFColorSampler: DSFColorSamplerDelegate {
 
 	public func windowDidBecomeKey(_ notification: Notification) {
 		if let obj = notification.object as? DSFColorSamplerWindow,
-			obj == self.screenPickerWindow {
+			obj == self.screenPickerWindow
+		{
 			obj.acceptsMouseMovedEvents = true
 		}
 	}
 
 	public func windowDidResignKey(_ notification: Notification) {
 		if let obj = notification.object as? DSFColorSamplerWindow,
-			obj == self.screenPickerWindow {
+			obj == self.screenPickerWindow
+		{
 			self.reset()
 		}
 	}
@@ -185,7 +231,7 @@ private class DSFColorSamplerWindow: NSWindow {
 		return true
 	}
 
-	public override init(
+	override public init(
 		contentRect: NSRect,
 		styleMask style: NSWindow.StyleMask,
 		backing backingStoreType: NSWindow.BackingStoreType,
@@ -202,7 +248,7 @@ private class DSFColorSamplerWindow: NSWindow {
 		self.contentView = captureView
 	}
 
-	open override func mouseMoved(with event: NSEvent) {
+	override open func mouseMoved(with event: NSEvent) {
 		let point = NSEvent.mouseLocation
 
 		var count: UInt32 = 0
@@ -224,8 +270,9 @@ private class DSFColorSamplerWindow: NSWindow {
 			.optionOnScreenBelowWindow,
 			windowID,
 			.nominalResolution
-			) else {
-				return
+		)
+		else {
+			return
 		}
 		self._image = image
 
@@ -249,23 +296,25 @@ private class DSFColorSamplerWindow: NSWindow {
 		super.mouseMoved(with: event)
 	}
 
-	open override func mouseDown(with _: NSEvent) {
+	override open func mouseDown(with _: NSEvent) {
 		let point = NSEvent.mouseLocation
 		let f = self.frame
 		if NSPointInRect(point, f) {
 			if let image = _image,
 				let correctedColor = image.colorAtCenter(),
-				let callerDelegate = self.delegate as? DSFColorSamplerDelegate {
+				let callerDelegate = self.delegate as? DSFColorSamplerDelegate
+			{
 				callerDelegate.window(self, clickedAtPoint: point, withColor: correctedColor)
 			}
 			self.orderOut(self)
 		}
 	}
 
-	open override func scrollWheel(with event: NSEvent) {
+	override open func scrollWheel(with event: NSEvent) {
 		if event.deltaY > 0.01 {
 			self.pixelZoom += 1
-		} else if event.deltaY < -0.01 {
+		}
+		else if event.deltaY < -0.01 {
 			self.pixelZoom -= 1
 		}
 		self.pixelZoom = self.pixelZoom.clamped(to: 2 ... 24)
@@ -299,7 +348,8 @@ private class DSFColorSamplerView: NSView {
 		guard let current = NSGraphicsContext.current else { return nil }
 		if #available(OSX 10.10, *) {
 			return current.cgContext
-		} else {
+		}
+		else {
 			return Unmanaged<CGContext>.fromOpaque(current.graphicsPort).takeUnretainedValue()
 		}
 	}
@@ -367,8 +417,8 @@ private extension NSColor {
 private extension CGImage {
 	func colorAtCenter() -> NSColor? {
 		let bitmapImageRep = NSBitmapImageRep(cgImage: self)
-		let centerX: Int = Int(bitmapImageRep.size.width) / 2
-		let centerY: Int = Int(bitmapImageRep.size.height) / 2
+		let centerX = Int(bitmapImageRep.size.width) / 2
+		let centerY = Int(bitmapImageRep.size.height) / 2
 
 		let color = bitmapImageRep.colorAt(x: centerX, y: centerY)
 		let correctedColor = color?.usingColorspace(bitmapImageRep.colorSpace) ?? color

@@ -78,6 +78,23 @@ DSFColorSampler.show(
 )
 ```
 
+### Async support
+
+**macOS 10.15+ only**
+
+This library supports the new async/await model in Swift 5.5 using the `sample()` method
+
+```swift
+Task { [weak self] in
+   self?.selectedColor = await DSFColorSampler.sample()
+}
+```
+
+The `sample()` method is marked as `@MainActor` so it's guaranteed to be run on the main thread.
+
+Note that if you're using this call, you might better be served using the NSColorSampler class in macOS 10.15+.
+This feature was made available as a learning exercise as how to convert callback-based async calls to Task based.
+
 ## Backwards compatibility for NSColorSampler (10.15+)
 
 The `selectColor` function has been added to DSFColorSampler that calls `NSColorSampler().show()` on 10.15 or later, and `DSFColorSampler().show()` on systems prior to 10.15.
@@ -99,6 +116,10 @@ DSFColorSampler.selectColor { (selectedColor: NSColor?) in
 ```
 
 # Releases
+
+### `2.1.0`
+
+* Added async task support for macOS 10.15+
 
 ### `2.0.0`
 
