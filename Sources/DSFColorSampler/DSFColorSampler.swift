@@ -53,7 +53,7 @@
 //  ```
 //
 
-import Carbon.HIToolbox
+import Carbon
 import Cocoa
 
 /// Class to allow a user to select a color from a display
