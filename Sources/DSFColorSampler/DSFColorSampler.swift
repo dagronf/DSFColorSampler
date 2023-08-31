@@ -248,23 +248,20 @@ private class DSFColorSamplerWindow: NSWindow {
 
 	override open func mouseMoved(with event: NSEvent) {
 		let point = NSEvent.mouseLocation
-
-		var count: UInt32 = 0
-		var displayID: CGDirectDisplayID = 0
-
-		if CGGetDisplaysWithPoint(point, 1, &displayID, &count) != CGError.success {
-			return
-		}
-
 		let captureSize: CGFloat = self.frame.size.width / self.pixelZoom
-		let screenFrame: NSRect = CGDisplayBounds(displayID)
-		let x: CGFloat = floor(point.x) - floor(captureSize / 2)
-		let y: CGFloat = screenFrame.size.height - floor(point.y) - floor(captureSize / 2)
-
+		let screenWithMouse = NSScreen.screens.first { NSMouseInRect(point, $0.frame, false) } // screen where mouse resides
+		let screenWithOrigin = NSScreen.screens.first { $0.frame.origin.x == 0 } // screen where menu bar resides, can be changed in System Settings->Displays->Arrange...
+		let isInOrigin = screenWithMouse == screenWithOrigin
+		let x = floor(point.x)
+		let y = isInOrigin ? screenWithMouse!.frame.height - floor(point.y) : screenWithOrigin!.frame.size.height  - floor(point.y)
+		let captureRect = NSRect(x: x - floor(captureSize / 2),
+								 y: y - floor(captureSize / 2),
+		                         width: captureSize,
+		                         height: captureSize)
 		let windowID = CGWindowID(self.windowNumber)
 
 		guard let image = CGWindowListCreateImage(
-			CGRect(x: x, y: y, width: captureSize, height: captureSize),
+			captureRect,
 			.optionOnScreenBelowWindow,
 			windowID,
 			.nominalResolution
