@@ -252,15 +252,25 @@ private class DSFColorSamplerWindow: NSWindow {
 	override open func mouseMoved(with event: NSEvent) {
 		let point = NSEvent.mouseLocation
 		let captureSize: CGFloat = self.frame.size.width / self.pixelZoom
-		let screenWithMouse = NSScreen.screens.first { NSMouseInRect(point, $0.frame, false) } // screen where mouse resides
-		let screenWithOrigin = NSScreen.screens.first { $0.frame.origin.x == 0 } // screen where menu bar resides, can be changed in System Settings->Displays->Arrange...
+		guard
+			// screen where mouse resides
+			let screenWithMouse = NSScreen.screens.first(where: { NSMouseInRect(point, $0.frame, false) }),
+			// screen where menu bar resides, can be changed in System Settings->Displays->Arrange...
+			let screenWithOrigin = NSScreen.screens.first(where: { $0.frame.origin.x == 0 })
+		else {
+			// Odd? Mouse not on any screen?
+			return
+		}
+
 		let isInOrigin = screenWithMouse == screenWithOrigin
 		let x = floor(point.x)
-		let y = isInOrigin ? screenWithMouse!.frame.height - floor(point.y) : screenWithOrigin!.frame.size.height  - floor(point.y)
-		let captureRect = NSRect(x: x - floor(captureSize / 2),
-								 y: y - floor(captureSize / 2),
-		                         width: captureSize,
-		                         height: captureSize)
+		let y = isInOrigin ? screenWithMouse.frame.height - floor(point.y) : screenWithOrigin.frame.size.height - floor(point.y)
+		let captureRect = NSRect(
+			x: x - floor(captureSize / 2),
+			y: y - floor(captureSize / 2),
+			width: captureSize,
+			height: captureSize
+		)
 		let windowID = CGWindowID(self.windowNumber)
 
 		guard let image = CGWindowListCreateImage(
