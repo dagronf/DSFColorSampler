@@ -170,6 +170,9 @@ private extension DSFColorSampler {
 		NSApplication.shared.activate(ignoringOtherApps: true)
 		self.screenPickerWindow!.makeKeyAndOrderFront(self)
 		self.screenPickerWindow!.orderedIndex = 0
+		
+		// prepare image for window's contentView in advance
+		self.screenPickerWindow!.mouseMoved(with: NSEvent())
 		NSCursor.hide()
 	}
 
