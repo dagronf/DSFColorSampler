@@ -53,8 +53,10 @@
 //  ```
 //
 
-import Carbon
 import Cocoa
+
+// The escape key (so we don't have to import Carbon)
+private let kVK_Escape = 53
 
 /// Class to allow a user to select a color from a display
 @objc public class DSFColorSampler: NSObject {
