@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21219" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21219"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -681,25 +681,25 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="125" y="201"/>
+            <point key="canvasLocation" x="31" y="-278"/>
         </menu>
         <window title="ColorPickerTestApp" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="313" height="133"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
+            <rect key="contentRect" x="335" y="390" width="577" height="365"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1127"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="389" height="133"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <rect key="frame" x="0.0" y="0.0" width="577" height="365"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="30" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EL5-rt-E4v">
-                        <rect key="frame" x="20" y="25" width="277" height="88"/>
+                        <rect key="frame" x="20" y="25" width="465" height="320"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GOi-FF-ova">
-                                <rect key="frame" x="0.0" y="20" width="86" height="48"/>
+                                <rect key="frame" x="0.0" y="136" width="149" height="48"/>
                                 <subviews>
                                     <button horizontalHuggingPriority="10" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z77-Fi-3wA">
-                                        <rect key="frame" x="-7" y="21" width="100" height="32"/>
+                                        <rect key="frame" x="-7" y="21" width="163" height="32"/>
                                         <buttonCell key="cell" type="push" title="Pick" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dnI-5H-L7Z">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -729,10 +729,10 @@
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8nt-lf-pnl">
-                                <rect key="frame" x="116" y="3" width="63" height="83"/>
+                                <rect key="frame" x="179" y="86" width="128" height="148"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CME-pR-pid">
-                                        <rect key="frame" x="14" y="67" width="35" height="16"/>
+                                        <rect key="frame" x="47" y="132" width="35" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="color" id="y4x-rE-5dF">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -740,10 +740,10 @@
                                         </textFieldCell>
                                     </textField>
                                     <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="j1T-Wo-Me3">
-                                        <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
+                                        <rect key="frame" x="-3" y="-2" width="134" height="132"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="63" id="IGy-WL-uME"/>
-                                            <constraint firstAttribute="width" constant="63" id="gQE-1j-aO5"/>
+                                            <constraint firstAttribute="height" constant="128" id="IGy-WL-uME"/>
+                                            <constraint firstAttribute="width" constant="128" id="gQE-1j-aO5"/>
                                         </constraints>
                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </colorWell>
@@ -758,10 +758,10 @@
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fnx-WC-0PZ">
-                                <rect key="frame" x="209" y="4" width="68" height="81"/>
+                                <rect key="frame" x="337" y="85" width="128" height="151"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W4L-1n-B3x">
-                                        <rect key="frame" x="-2" y="65" width="72" height="16"/>
+                                        <rect key="frame" x="28" y="135" width="72" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="screenshot" id="7SA-Mv-TIn">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -769,10 +769,10 @@
                                         </textFieldCell>
                                     </textField>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KUk-If-IdF" customClass="CustomImageView" customModule="ColorPickerTestApp" customModuleProvider="target">
-                                        <rect key="frame" x="3" y="-3" width="63" height="64"/>
+                                        <rect key="frame" x="-3" y="-3" width="134" height="134"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="57" id="SMq-ke-xB8"/>
-                                            <constraint firstAttribute="height" constant="58" id="fPX-Yo-5ZA"/>
+                                            <constraint firstAttribute="width" constant="128" id="SMq-ke-xB8"/>
+                                            <constraint firstAttribute="height" constant="128" id="fPX-Yo-5ZA"/>
                                         </constraints>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Ax5-sL-Lie"/>
                                     </imageView>
@@ -806,7 +806,7 @@
                     <constraint firstAttribute="bottom" secondItem="EL5-rt-E4v" secondAttribute="bottom" constant="25" id="pHq-cj-ucG"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="12.5" y="-44.5"/>
+            <point key="canvasLocation" x="43.5" y="39.5"/>
         </window>
     </objects>
 </document>

@@ -65,6 +65,9 @@ private let kVK_Escape = 53
 	/// Color and location selection block callback. If the user cancels the selection (pressed ESC) then selectedColor will be nil
 	public typealias LocationChangedBlock = (_ currentImage: NSImage, NSColor) -> Void
 
+	fileprivate static let pixelMaxZoom: CGFloat = 7
+	fileprivate static let pixelMinZoom: CGFloat = 1
+	
 	/// Display the color selector and allow the user to select a color
 	///
 	/// - Parameters:
@@ -147,8 +150,9 @@ private extension DSFColorSampler {
 	}
 
 	func run() {
+		let size = pow(2, DSFColorSampler.pixelMaxZoom)
 		self.screenPickerWindow = DSFColorSamplerWindow(
-			contentRect: NSRect(x: 0, y: 0, width: 125, height: 125),
+			contentRect: NSRect(x: 0, y: 0, width: size, height: size),
 			styleMask: .borderless,
 			backing: .buffered,
 			defer: true
@@ -222,7 +226,7 @@ private protocol DSFColorSamplerDelegate: NSWindowDelegate {
 }
 
 private class DSFColorSamplerWindow: NSWindow {
-	private var pixelZoom: CGFloat = 7
+	private var pixelZoom: CGFloat = 2
 
 	var _image: CGImage?
 
@@ -253,7 +257,7 @@ private class DSFColorSamplerWindow: NSWindow {
 
 	override open func mouseMoved(with event: NSEvent) {
 		let point = NSEvent.mouseLocation
-		let captureSize: CGFloat = self.frame.size.width / self.pixelZoom
+		let captureSize = self.frame.size.width / pow(2, self.pixelZoom - 1) + 1
 		guard
 			// screen where mouse resides
 			let screenWithMouse = NSScreen.screens.first(where: { NSMouseInRect(point, $0.frame, false) }),
@@ -327,7 +331,7 @@ private class DSFColorSamplerWindow: NSWindow {
 		else if event.deltaY < -0.01 {
 			self.pixelZoom -= 1
 		}
-		self.pixelZoom = self.pixelZoom.clamped(to: 2 ... 24)
+		self.pixelZoom = self.pixelZoom.clamped(to: DSFColorSampler.pixelMinZoom ... DSFColorSampler.pixelMaxZoom)
 
 		(self.contentView as? DSFColorSamplerView)?.pixelZoom = self.pixelZoom
 
@@ -350,7 +354,7 @@ private class DSFColorSamplerWindow: NSWindow {
 // MARK: - DSFColorSamplerView
 
 private class DSFColorSamplerView: NSView {
-	var pixelZoom: CGFloat = 7
+	var pixelZoom: CGFloat = 2
 	var _image: CGImage?
 
 	// Wrapper to work around lack of cgContext on 10.9
@@ -391,7 +395,7 @@ private class DSFColorSamplerView: NSView {
 		}
 
 		// draw the aperture
-		let apertureSize: CGFloat = self.pixelZoom
+		let apertureSize: CGFloat = width / (pow(2, DSFColorSampler.pixelMaxZoom - self.pixelZoom + 1) + 1)
 		let x: CGFloat = (width / 2.0) - (apertureSize / 2.0)
 		let y: CGFloat = (height / 2.0) - (apertureSize / 2.0)
 
